@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kak Rei</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #dcdde1;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 350px;
+            height: auto;
+            overflow-y: auto;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #5d8aa8;
+        }
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #5d8aa8;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3e6476;
+        }
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        .poem-bait {
+            margin-bottom: 20px;
+            display: none;
+        }
+        .scroll-instruction {
+            font-size: 1rem;
+            margin-top: 20px;
+            color: #777;
+        }
+        #poem-area {
+            max-height: 400px; /* Set a fixed height for scrollable area */
+            overflow-y: auto;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="main-container">
+        <div id="question-area" class="fade-in">
+            <p>Halo kak rei! aku abis nulis sesuatu dongg, mau baca ngga? tapi harus kak rei yang baca</p>
+            <button onclick="handleChoice(1, 'yes')">mau, sayang</button>
+            <button onclick="handleChoice(1, 'no')">gamau, emoh</button>
+        </div>
+        <div id="poem-area" class="hidden">
+            <h1>Happy Birthday Kak Reiiii🥳</h1>
+            <div class="poem-bait" id="poem-1">
+                <p>Di baca pelan pelan yaa🤍</p>
+            </div>
+            <div class="poem-bait" id="poem-2">
+                <p>Waktu terus berjalan, tak pernah menunggu,<br>dan hari ini, kita berhenti sejenak,<br>untuk merayakan perjalanan yang telah kak rei jalani.</p>
+            </div>
+            <div class="poem-bait" id="poem-3">
+                <p>Hari ini adalah tanda bahwa semesta mencintai kak rei.<br>Ia memberi kak rei satu tahun lagi untuk bersinar,<br>dan aku, seseorang yang sayang kak rei,<br>beruntung bisa menyaksikannya dari dekat.</p>
+            </div>
+            <div class="poem-bait" id="poem-4">
+                <p>Waktu terus berputar, mengalir begitu tenang,<br>dan di setiap detiknya, aku belajar banyak dari kak rei.<br>Usia kak rei mungkin bertambah, tetapi kak rei tetap menjadi sosok yang menenangkan.</p>
+            </div>
+            <div class="poem-bait" id="poem-5">
+                <p>Seseorang yang mengajarkan aku untuk tetap percaya diri,<br>untuk memandang hidup dengan lebih bijaksana,<br>dan untuk menerima setiap perjalanan dengan hati yang lapang.</p>
+            </div>
+            <div class="poem-bait" id="poem-6">
+                <p>Kak Rei, kau bukan hanya sosok yang lebih tua,<br>tapi seorang yang tahu betul bagaimana menjalani hidup<br>tanpa harus kehilangan diri.</p>
+            </div>
+            <div class="poem-bait" id="poem-7">
+                <p>Kak rei mengajarkan aku bahwa kedewasaan bukan soal umur,<br>melainkan bagaimana kita belajar dari setiap jatuh,<br>dan bangkit dengan cara yang lebih kuat.</p>
+            </div>
+            <div class="poem-bait" id="poem-8">
+                <p>Selamat ulang tahun, sayang.<br>Semoga hari-harimu selalu dipenuhi dengan ketenangan,<br>dan cinta yang tak pernah habis, seperti senja yang tak pernah benar-benar pergi.</p>
+            </div>
+            <div class="poem-bait" id="poem-9">
+                <p>Semoga kebahagiaanmu adalah langit tak bertepi,<br>dan aku ingin menjadi awan kecil<br>yang selalu ada di sana menemani kak rei.</p>
+            </div>
+            <p class="scroll-instruction">tap layarnya kakk</p>
+        </div>
+    </div>
+    <script>
+        let currentBait = 1;
+
+        function handleChoice(level, choice) {
+            const questionArea = document.getElementById('question-area');
+            const poemArea = document.getElementById('poem-area');
+            const container = document.getElementById('main-container');
+
+            if (choice === 'no' && level === 1) {
+                questionArea.innerHTML = `
+                    <p>pa maksut??!! sudah kuduga😒 jd mw baca gk?</p>
+                    <button onclick="handleChoice(2, 'yes')">yauda iya, ak mau baca</button>
+                    <button onclick="handleChoice(2, 'no')">Gamau, aku mau bekerja</button>
+                `;
+            } else if (choice === 'no' && level === 2) {
+                questionArea.innerHTML = `
+                    <p>yaelahhh, blio ini sangat keras kepala😒, pokoknya aku memaksa kak rei bwt baca😠</p>
+                    <button onclick="handleChoice(3, 'yes')">iya, sayang</button>
+                    <button onclick="handleChoice(3, 'no')">iya, bawel</button>
+                `;
+            } else {
+                showPoem();
+                // Memperkecil ukuran kotak
+                container.style.width = '80%';
+                container.style.maxWidth = '350px';
+            }
+        }
+
+        function showPoem() {
+            const questionArea = document.getElementById('question-area');
+            const poemArea = document.getElementById('poem-area');
+
+            questionArea.classList.add('hidden');
+            poemArea.classList.remove('hidden');
+            poemArea.classList.add('fade-in');
+            showBait(currentBait);
+        }
+
+        function showBait(baitNumber) {
+            const bait = document.getElementById(`poem-${baitNumber}`);
+            if (bait) {
+                bait.style.display = 'block';
+                currentBait++;
+                if (currentBait > 9) {
+                    const instruction = document.querySelector('.scroll-instruction');
+                    instruction.innerHTML = "Segitu aja, makasih kak reiii udah baca sampai abisss";
+                }
+            }
+        }
+
+        document.getElementById('poem-area').addEventListener('click', () => {
+            showBait(currentBait);
+        });
+    </script>
+</body>
+</html>
